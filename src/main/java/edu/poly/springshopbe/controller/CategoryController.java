@@ -89,4 +89,12 @@ public class CategoryController {
             Pageable pageable) {
         return new ResponseEntity<>(categoryService.findAll(pageable), HttpStatus.OK);
     }
+
+    /**
+     * tim Category theo id
+     */
+    @GetMapping("/{id}/get")
+    public ResponseEntity<?> getCategory(@PathVariable("id") Long id) {
+        return new ResponseEntity<>(categoryService.findById(id), HttpStatus.OK);
+    }
 }

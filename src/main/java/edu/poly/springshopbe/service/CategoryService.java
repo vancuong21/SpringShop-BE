@@ -50,4 +50,15 @@ public class CategoryService {
     public Page<Category> findAll(Pageable pageable) {
         return categoryRepository.findAll(pageable);
     }
+
+    // tim Category theo Id
+    public Category findById(Long id) {
+        Optional<Category> found =  categoryRepository.findById(id);
+
+        if (found.isEmpty()) { // neu ko ton tai thong tin cua Category trong db
+            throw new CategoryException("Category with id " + id + " does not exist");
+        }
+
+        return found.get();
+    }
 }
