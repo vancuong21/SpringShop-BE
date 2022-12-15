@@ -97,4 +97,14 @@ public class CategoryController {
     public ResponseEntity<?> getCategory(@PathVariable("id") Long id) {
         return new ResponseEntity<>(categoryService.findById(id), HttpStatus.OK);
     }
+
+    /**
+     * xoa Category theo id
+     */
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteCategory(@PathVariable("id") Long id) {
+        categoryService.deleteById(id);
+        return new ResponseEntity<>("Category with id: " + id + " was deleted", HttpStatus.OK);
+    }
+
 }

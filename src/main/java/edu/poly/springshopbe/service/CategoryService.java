@@ -61,4 +61,10 @@ public class CategoryService {
 
         return found.get();
     }
+
+    // xoa Category theo id
+    public void deleteById(Long id) {
+        Category existed = findById(id); // neu co thong tin, neu ko cos thi nem exception
+        categoryRepository.delete(existed);
+    }
 }
