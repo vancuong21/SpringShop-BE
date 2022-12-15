@@ -6,6 +6,7 @@ import edu.poly.springshopbe.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -36,5 +37,10 @@ public class CategoryService {
             throw new CategoryException("Category is updated fail");
         }
 
+    }
+
+    // tim kiem va tra ve All Category in db
+    public List<Category> findAll() {
+        return categoryRepository.findAll();
     }
 }

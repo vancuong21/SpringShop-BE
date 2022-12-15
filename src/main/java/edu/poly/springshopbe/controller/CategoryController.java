@@ -66,4 +66,12 @@ public class CategoryController {
 
         return new ResponseEntity<>(categoryDTO, HttpStatus.CREATED); // trả thông tin cho client
     }
+
+    /**
+     * tra ve all Category
+     */
+    @GetMapping()
+    public ResponseEntity<?> getCategory() {
+        return new ResponseEntity<>(categoryService.findAll(), HttpStatus.OK);
+    }
 }
