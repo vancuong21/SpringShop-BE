@@ -4,6 +4,8 @@ import edu.poly.springshopbe.entity.Category;
 import edu.poly.springshopbe.exception.CategoryException;
 import edu.poly.springshopbe.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -42,5 +44,10 @@ public class CategoryService {
     // tim kiem va tra ve All Category in db
     public List<Category> findAll() {
         return categoryRepository.findAll();
+    }
+
+    // tim kiem, phan trang, sap xep du lieu
+    public Page<Category> findAll(Pageable pageable) {
+        return categoryRepository.findAll(pageable);
     }
 }
